@@ -21,11 +21,11 @@ public class Contact implements HasId {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "contact_info")
+    @Column(name = "contact_info", nullable = false)
     private String contactInfo;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "contact_type")
+    @Column(name = "contact_type", nullable = false)
     private ContactType contactType;
 
     @ManyToOne(fetch = FetchType.LAZY)
