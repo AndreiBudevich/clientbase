@@ -3,6 +3,8 @@ package com.client.clientbase.model;
 import com.client.clientbase.HasId;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +24,8 @@ public class Contact implements HasId {
     private Long id;
 
     @Column(name = "contact_info", nullable = false)
+    @NotBlank
+    @Size(min = 1, max = 200)
     private String contactInfo;
 
     @Enumerated(EnumType.STRING)

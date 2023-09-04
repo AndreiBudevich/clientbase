@@ -3,9 +3,11 @@ package com.client.clientbase.web;
 import com.client.clientbase.model.Contact;
 import com.client.clientbase.model.ContactType;
 import com.client.clientbase.service.contact.ContactService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -16,6 +18,7 @@ import static com.client.clientbase.util.ValidationUtil.checkNew;
 
 @RestController
 @Slf4j
+@Validated
 @RequestMapping(value = ContactController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class ContactController {
     static final String REST_URL = "/api/contacts";
@@ -39,7 +42,7 @@ public class ContactController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Contact> createWithLocation(@RequestBody Contact contact, @RequestParam long clientId) {
+    public ResponseEntity<Contact> createWithLocation(@Valid @RequestBody Contact contact, @RequestParam long clientId) {
         checkNew(contact);
         Contact created = contactService.save(contact, clientId);
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
