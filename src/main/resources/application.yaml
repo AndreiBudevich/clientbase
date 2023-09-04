@@ -37,3 +37,6 @@ server.servlet:
     charset: UTF-8
     enabled: true
     force: true
+
+server:
+  port: 8095
