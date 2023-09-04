@@ -1,5 +1,6 @@
 package com.client.clientbase.model;
 
+import com.client.clientbase.HasId;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -14,7 +15,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "contact")
-public class Contact {
+public class Contact implements HasId {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
