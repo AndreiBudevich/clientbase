@@ -52,4 +52,15 @@ public class Client implements HasId {
     public String toString() {
         return getClass().getSimpleName() + " id:" + id;
     }
+
+    public Client(Long id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public Client(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
 }
