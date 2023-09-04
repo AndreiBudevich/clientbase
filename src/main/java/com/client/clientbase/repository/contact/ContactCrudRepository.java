@@ -10,8 +10,8 @@ import java.util.List;
 public interface ContactCrudRepository extends JpaRepository<Contact, Long> {
 
     @Query("SELECT c FROM Contact c WHERE c.client.id =?1")
-    List<Contact> getAllByClientId(long id);
+    List<Contact> getAllByClientId(long clientId);
 
     @Query("SELECT c FROM Contact c WHERE c.client.id =?1 AND c.contactType = ?2")
-    List<Contact> getAllByClientIdAndContactType(long id, ContactType contactType);
+    List<Contact> getAllByClientIdAndContactType(long clientId, ContactType contactType);
 }

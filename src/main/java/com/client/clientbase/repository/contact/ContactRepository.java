@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ContactRepository {
 
-    List<Contact> getAllByClientId(long id);
+    List<Contact> getAllByClientId(long clientId);
 
-    List<Contact> getAllByClientIdAndContactType(long id, ContactType contactType);
+    List<Contact> getAllByClientIdAndContactType(long clientId, ContactType contactType);
 
     Contact save(Contact contact);
 }

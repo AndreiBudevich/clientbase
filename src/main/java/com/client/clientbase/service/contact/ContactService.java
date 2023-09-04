@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ContactService {
 
-    List<Contact> getAllByClientId(long id);
+    List<Contact> getAllByClientId(long clientId);
 
-    List<Contact> getAllByClientIdAndContactType(long id, ContactType contactType);
+    List<Contact> getAllByClientIdAndContactType(long clientId, ContactType contactType);
 
-    Contact save(Contact contact);
+    Contact save(Contact contact, long clientId);
 }
