@@ -1,5 +1,6 @@
 package com.client.clientbase.model;
 
+import com.client.clientbase.HasId;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -16,7 +17,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "client")
-public class Client {
+public class Client implements HasId {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
