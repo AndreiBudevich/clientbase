@@ -41,7 +41,7 @@ class ContactControllerTest extends AbstractControllerTest {
 
     @Test
     void createWithLocation() throws Exception {
-        Contact newContact = ContactTestData.getNew();
+        Contact newContact = getNew();
         ResultActions action = perform(MockMvcRequestBuilders.post(REST_URL)
                 .param("clientId", "1")
                 .contentType(MediaType.APPLICATION_JSON)

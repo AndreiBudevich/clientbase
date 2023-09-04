@@ -35,7 +35,7 @@ class ClientControllerTest extends AbstractControllerTest {
 
     @Test
     void createWithLocation() throws Exception {
-        Client newClient = ClientTestData.getNew();
+        Client newClient = getNew();
         ResultActions action = perform(MockMvcRequestBuilders.post(REST_URL)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(writeValue(newClient)));
