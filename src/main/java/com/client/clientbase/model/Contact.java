@@ -52,4 +52,15 @@ public class Contact implements HasId {
     public String toString() {
         return getClass().getSimpleName() + " id:" + id;
     }
+
+    public Contact(Long id, String contactInfo, ContactType contactType) {
+        this.id = id;
+        this.contactInfo = contactInfo;
+        this.contactType = contactType;
+    }
+
+    public Contact(String contactInfo, ContactType contactType) {
+        this.contactInfo = contactInfo;
+        this.contactType = contactType;
+    }
 }
