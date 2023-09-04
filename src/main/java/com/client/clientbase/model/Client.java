@@ -33,4 +33,23 @@ public class Client implements HasId {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonBackReference(value = "client-contact")
     private List<Contact> contacts;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || !this.getClass().equals(o.getClass())) {
+            return false;
+        }
+        Client that = (Client) o;
+        return id != null && id.equals(that.id);
+    }
+
+    public int hashCode() {
+        return id == null ? 0 : id.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " id:" + id;
+    }
 }
