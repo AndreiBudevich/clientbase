@@ -16,6 +16,7 @@ public class MatcherFactory {
     public static <T> Matcher<T> usingAssertions(Class<T> clazz, BiConsumer<T, T> assertion, BiConsumer<Iterable<T>, Iterable<T>> iterableAssertion) {
         return new Matcher<>(clazz, assertion, iterableAssertion);
     }
+
     public static <T> Matcher<T> usingIgnoringFieldsComparator(Class<T> clazz, String... fieldsToIgnore) {
         return usingAssertions(clazz,
                 (a, e) -> assertThat(a).usingRecursiveComparison().ignoringFields(fieldsToIgnore).isEqualTo(e),
@@ -48,6 +49,10 @@ public class MatcherFactory {
 
         @SafeVarargs
         public final ResultMatcher contentJson(T... expected) {
+            return contentJson(List.of(expected));
+        }
+
+        public final ResultMatcher contentJsonOneListed(T expected) {
             return contentJson(List.of(expected));
         }
 
