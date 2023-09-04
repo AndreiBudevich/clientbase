@@ -17,7 +17,9 @@ import org.hibernate.annotations.OnDeleteAction;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "contact")
+@Table(name = "contact", uniqueConstraints =
+        {@UniqueConstraint(columnNames = {"contact_info", "contact_type", "client_id"},
+                name = "contact_info_contact_typ_client_id_idx")})
 public class Contact implements HasId {
 
     @Id
