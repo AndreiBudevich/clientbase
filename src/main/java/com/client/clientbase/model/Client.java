@@ -2,6 +2,7 @@ package com.client.clientbase.model;
 
 import com.client.clientbase.HasId;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -23,6 +24,7 @@ public class Client implements HasId {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
     @Column(name = "name", nullable = false)
@@ -36,6 +38,7 @@ public class Client implements HasId {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonBackReference(value = "client-contact")
+    @Schema(hidden = true)
     private List<Contact> contacts;
 
     @Override
