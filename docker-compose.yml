@@ -1,0 +1,19 @@
+version: '2'
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+
+  postgres:
+    image: postgres:15.1
+    expose:
+      - "5438"
+    ports:
+      - "5438:5438"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=clients_data_base
+    command: -p 5438
